@@ -56,7 +56,8 @@ DEFAULT_REQUEST_HEADERS = {
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
 #    'avito.middlewares.AvitoDownloaderMiddleware': 543,
-    'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 100
+    #'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 110,
+    #'avito.middlewares.ProxyMiddleware': 100
 }
 
 # Enable or disable extensions

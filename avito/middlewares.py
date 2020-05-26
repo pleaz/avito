@@ -6,6 +6,7 @@
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
 from scrapy import signals
+from w3lib.http import basic_auth_header
 
 
 class AvitoSpiderMiddleware:
@@ -101,3 +102,10 @@ class AvitoDownloaderMiddleware:
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
+
+
+class ProxyMiddleware(object):
+    def process_request(self, request, spider):
+        request.meta['proxy'] = ""
+        request.headers['Proxy-Authorization'] = basic_auth_header(
+            '', '')

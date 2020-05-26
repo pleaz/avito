@@ -2,3 +2,6 @@ avito/__pycache__/
 avito/spiders/__pycache__/
 .idea/
 .DS_Store
+avito.egg-info/
+build/
+

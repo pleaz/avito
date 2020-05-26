@@ -15,9 +15,9 @@ class AvitoSpider(scrapy.Spider):
         products = response.xpath('//div[contains(@class, "js-catalog_serp")]/div[contains(@class, "js-catalog-item-enum")]')
         for product in products:
             item = AvitoItem()
-            item['url'] = response.urljoin(product.xpath('//a[contains(@itemprop, "url")]/@href').extract_first())
-            item['name'] = product.xpath('//a[contains(@itemprop, "url")]/text()').extract_first()
-            item['price'] = product.xpath('//span[contains(@data-marker, "item-price")]/text()').extract_first()
+            item['url'] = response.urljoin(product.xpath('.//a[contains(@itemprop, "url")]/@href').extract_first())
+            item['name'] = product.xpath('.//a[contains(@itemprop, "url")]/text()').extract_first()
+            item['price'] = product.xpath('.//span[contains(@data-marker, "item-price")]/text()').extract_first().strip().replace("₽","").replace(" ","")
             yield item
 
         next = response.xpath('//span[contains(@data-marker, "pagination-button/next")]').extract_first()

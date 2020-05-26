@@ -4,8 +4,8 @@ import scrapy
 import urllib
 
 
-class AvitSpider(scrapy.Spider):
-    name = 'avit'
+class AvitoSpider(scrapy.Spider):
+    name = 'avito'
     allowed_domains = ['avito.ru']
     query = {'q': 'Камаз 55111'}
     region = 'moskovskaya_oblast'

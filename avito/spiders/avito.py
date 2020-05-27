@@ -7,9 +7,10 @@ import urllib
 class AvitoSpider(scrapy.Spider):
     name = 'avito'
     allowed_domains = ['avito.ru']
-    query = {'q': 'Камаз 55111'}
+    query = {'q': 'Камаз 6520'}
     region = 'moskovskaya_oblast'
-    start_urls = ['https://www.avito.ru/' + region + '?' + urllib.parse.urlencode(query)]
+    category = 'gruzoviki_i_spetstehnika'
+    start_urls = ['https://www.avito.ru/' + region + '/' + category + '?' + urllib.parse.urlencode(query)]
 
     def parse(self, response):
         products = response.xpath('//div[contains(@class, "js-catalog_serp")]/div[contains(@class, "js-catalog-item-enum")]')
